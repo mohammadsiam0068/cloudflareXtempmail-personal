@@ -1,0 +1,30 @@
+name = "tempmail-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+workers_dev = true
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tempmail-db"
+database_id = "da13de88-f84e-4b7e-8cc5-8852086c8c12"
+
+[triggers]
+crons = ["*/10 * * * *"]
+
+
+
+[observability]
+enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = false
+persist = true
+head_sampling_rate = 1
